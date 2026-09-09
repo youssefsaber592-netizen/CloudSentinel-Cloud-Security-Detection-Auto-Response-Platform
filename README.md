@@ -163,7 +163,7 @@ An ASG keeps 2–4 instances running behind the load balancer, replacing unhealt
 
 `app.py` — a Flask app that serves the CloudSentinel status page and silently logs any request to a decoy path.
 
-```python
+``python
 from flask import Flask, request, render_template_string
 from datetime import datetime
 import logging
@@ -265,11 +265,11 @@ def env():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=80)
-```
+`
 
----
 
-## 🧪 Testing
+
+ 🧪 Testing
 
 | Test | Result |
 |---|---|
