@@ -32,7 +32,7 @@ Built as part of the **Digital Egypt Pioneers Initiative (DEPI) — AWS Cloud Ar
 
 The detection-and-response concept implemented across the project — activity is captured, filtered, and pushed to the security team as an alert.
 
-![Architecture concept](assets/architecture-concept.png)
+> 📎 Add `architecture-concept.png` to the image folder below to display the diagram here.
 
 **Traffic flow:** Internet → ALB → Auto Scaling Group (EC2, private subnets) → RDS (private subnet). Alerts flow: decoy hit → application log → SNS topic → e-mail.
 
@@ -68,11 +68,11 @@ A custom VPC spans two Availability Zones with public/private subnets, route tab
 
 | Subnets | Internet Gateway |
 |---|---|
-| ![Subnets](assets/01-vpc-subnets.jpeg) | ![Internet Gateway](assets/02-vpc-internet-gateway.jpeg) |
+| ![Subnets](<WhatsApp Unknown 2026-09-01 at 7.45.07 AM/WhatsApp Image 2026-09-01 at 12.37.31 AM (1).jpeg>) | ![Internet Gateway](<WhatsApp Unknown 2026-09-01 at 7.45.07 AM/WhatsApp Image 2026-09-01 at 12.37.31 AM.jpeg>) |
 
 | Public Route Table | VPC Resource Map |
 |---|---|
-| ![Route table](assets/03-vpc-route-table.jpeg) | ![Resource map](assets/04-vpc-resource-map.jpeg) |
+| ![Route table](<WhatsApp Unknown 2026-09-01 at 7.45.07 AM/WhatsApp Image 2026-09-01 at 12.37.32 AM.jpeg>) | ![Resource map](<WhatsApp Unknown 2026-09-01 at 7.45.07 AM/WhatsApp Image 2026-09-01 at 12.37.33 AM.jpeg>) |
 
 ### 2. Security Groups
 
@@ -80,17 +80,17 @@ Three dedicated security groups enforce least-privilege access between the ALB, 
 
 | ALB Security Group | EC2 Security Group |
 |---|---|
-| ![ALB SG](assets/05-sg-alb-create.jpeg) | ![EC2 SG](assets/06-sg-ec2-created.jpeg) |
+| ![ALB SG](<WhatsApp Unknown 2026-09-01 at 7.45.07 AM/WhatsApp Image 2026-09-01 at 12.37.32 AM (1).jpeg>) | ![EC2 SG](<WhatsApp Unknown 2026-09-01 at 7.45.07 AM/WhatsApp Image 2026-09-01 at 12.37.34 AM.jpeg>) |
 
 | RDS Security Group | All Security Groups |
 |---|---|
-| ![RDS SG](assets/07-sg-rds-create.jpeg) | ![SG overview](assets/08-sg-overview.jpeg) |
+| ![RDS SG](<WhatsApp Unknown 2026-09-01 at 7.45.07 AM/WhatsApp Image 2026-09-01 at 12.37.36 AM.jpeg>) | ![SG overview](<WhatsApp Unknown 2026-09-01 at 7.45.07 AM/WhatsApp Image 2026-09-01 at 12.37.35 AM.jpeg>) |
 
 ### 3. S3 Bucket
 
 A dedicated S3 bucket stores security artifacts and logs collected by the platform.
 
-![S3 bucket](assets/09-s3-bucket.jpeg)
+![S3 bucket](<WhatsApp Unknown 2026-09-01 at 7.45.07 AM/WhatsApp Image 2026-09-01 at 12.37.37 AM.jpeg>)
 
 ### 4. SNS Alerting
 
@@ -98,7 +98,7 @@ An SNS topic pushes an e-mail notification to the security team the instant a su
 
 | SNS Topic & Subscription | Confirmation E-mail |
 |---|---|
-| ![SNS topic](assets/10-sns-topic.jpeg) | ![Confirmation email](assets/11-sns-email-confirmation.jpeg) |
+| ![SNS topic](<WhatsApp Unknown 2026-09-01 at 7.45.07 AM/WhatsApp Image 2026-09-01 at 12.37.38 AM.jpeg>) | ![Confirmation email](<WhatsApp Unknown 2026-09-01 at 7.45.07 AM/WhatsApp Image 2026-09-01 at 12.37.39 AM.jpeg>) |
 
 **Alert flow:** Decoy path hit → Event logged (`security.log`) → SNS topic notified → E-mail sent to security team
 
@@ -106,7 +106,7 @@ An SNS topic pushes an e-mail notification to the security team the instant a su
 
 A private MySQL instance on Amazon RDS backs the application, reachable only from the EC2 security group.
 
-![RDS instance](assets/12-rds-instance.jpeg)
+![RDS instance](<WhatsApp Unknown 2026-09-01 at 7.45.07 AM/WhatsApp Image 2026-09-01 at 12.37.40 AM.jpeg>)
 
 ### 6. EC2 Instance
 
@@ -114,13 +114,13 @@ An Amazon Linux 2023 instance is launched into the private subnet with a scoped 
 
 | AMI & Instance Type | Key Pair & Network Settings |
 |---|---|
-| ![EC2 launch AMI](assets/13-ec2-launch-ami.jpeg) | ![EC2 network settings](assets/14-ec2-launch-network.jpeg) |
+| ![EC2 launch AMI](<WhatsApp Unknown 2026-09-01 at 7.45.07 AM/WhatsApp Image 2026-09-01 at 12.37.41 AM.jpeg>) | ![EC2 network settings](<WhatsApp Unknown 2026-09-01 at 7.45.07 AM/WhatsApp Image 2026-09-01 at 12.37.43 AM.jpeg>) |
 
 ### 7. SSM Session Manager
 
 No SSH keys, no open port 22 — the instance is reached through an IAM-authenticated, browser-based shell.
 
-![SSM Session Manager](assets/15-ssm-session-target.jpeg)
+![SSM Session Manager](<WhatsApp Unknown 2026-09-01 at 7.45.07 AM/WhatsApp Image 2026-09-01 at 12.37.44 AM.jpeg>)
 
 ### 8. Deploying & Testing the App
 
@@ -141,7 +141,7 @@ nano app.py   # see app.py below
 sudo python3 app.py
 ```
 
-![Deploying and testing in Session Manager](assets/16-deploy-test-terminal.jpeg)
+![Deploying and testing in Session Manager](<WhatsApp Unknown 2026-09-01 at 7.45.07 AM/WhatsApp Image 2026-09-01 at 12.37.47 AM.jpeg>)
 
 ### 9. Application Load Balancer
 
@@ -149,13 +149,13 @@ The ALB distributes traffic across instances via a health-checked target group, 
 
 | Target Group | Load Balancer |
 |---|---|
-| ![Target group](assets/17-alb-target-group.jpeg) | ![Load balancer](assets/18-alb-load-balancer.jpeg) |
+| ![Target group](<WhatsApp Unknown 2026-09-01 at 7.45.07 AM/WhatsApp Image 2026-09-01 at 12.37.45 AM.jpeg>) | ![Load balancer](<WhatsApp Unknown 2026-09-01 at 7.45.07 AM/WhatsApp Image 2026-09-01 at 12.37.46 AM.jpeg>) |
 
 ### 10. Auto Scaling Group
 
 An ASG keeps 2–4 instances running behind the load balancer, replacing unhealthy nodes automatically.
 
-![Auto Scaling Group](assets/19-auto-scaling-group.jpeg)
+![Auto Scaling Group](<WhatsApp Unknown 2026-09-01 at 7.45.07 AM/WhatsApp Image 2026-09-01 at 12.37.48 AM.jpeg>)
 
 ---
 
@@ -288,34 +288,3 @@ if __name__ == "__main__":
 - Ali Mahmoud Ali
 - Mohamed Fathy Mohamed
 - Youssef Saber Salama
-
----
-
-## 📂 Suggested Repo Structure
-
-```
-.
-├── README.md
-├── app.py
-└── assets/
-    ├── architecture-concept.png
-    ├── 01-vpc-subnets.jpeg
-    ├── 02-vpc-internet-gateway.jpeg
-    ├── 03-vpc-route-table.jpeg
-    ├── 04-vpc-resource-map.jpeg
-    ├── 05-sg-alb-create.jpeg
-    ├── 06-sg-ec2-created.jpeg
-    ├── 07-sg-rds-create.jpeg
-    ├── 08-sg-overview.jpeg
-    ├── 09-s3-bucket.jpeg
-    ├── 10-sns-topic.jpeg
-    ├── 11-sns-email-confirmation.jpeg
-    ├── 12-rds-instance.jpeg
-    ├── 13-ec2-launch-ami.jpeg
-    ├── 14-ec2-launch-network.jpeg
-    ├── 15-ssm-session-target.jpeg
-    ├── 16-deploy-test-terminal.jpeg
-    ├── 17-alb-target-group.jpeg
-    ├── 18-alb-load-balancer.jpeg
-    └── 19-auto-scaling-group.jpeg
-```
